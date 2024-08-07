@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -20,5 +20,13 @@ export class TripDataService {
 
   addTrip(formData: Trip) : Observable<Trip> {
     return this.http.post<Trip>(this.url, formData);
+  }
+
+  getTrip(tripCode: string) : Observable<Trip[]> {
+    return this.http.get<Trip[]>(this.url + '/' + tripCode);
+  }
+
+  updateTrip(formData: Trip) : Observable<Trip> {
+    return this.http.put<Trip>(this.url + '/' + formData.code, formData);
   }
 }
