@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TripCardComponent implements OnInit {
 
-  @Input() trips: Array<any> = [];
+  @Input() trip: any;
 
   constructor() {}
 
