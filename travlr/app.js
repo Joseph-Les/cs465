@@ -13,7 +13,9 @@ var apiRouter = require('./app_api/routes/index');
 var handlebars = require('hbs');
 
 // Bring in the database
-require('./app_api/models/db')
+require('./app_api/models/db');
+require('dotenv').config();
+require('./app_api/config/passport');
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));var indexRouter = require('./app_api/routes/index');
 
 // Enable CORS
 app.use('/api', (req, res, next) => {
